@@ -2,14 +2,43 @@
  import { useRouter } from "next/router";
 
  import styles from "@/styles/Home.module.css";
+ import { useSession, signIn, signOut } from "next-auth/react";
 
+function checkLogin(data, router) {
+  if (data) {
+    return (
+      <>
+        <div className={styles.gmail_logo_wrapper}>
+          <Link style={{'height': '3.5vh'}} href="/user">
+            <img
+              className={styles.gmail_logo}
+              src={data.user.image}
+              alt={`profile picture for ${data.user.name}`}
+            />
+          </Link>
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <button type="button" onClick={() => router.push("/login")}>
+          Login
+        </button>
+      </>
+    );
+  }
+}
 
  const Navbar = () => {
+  const { data: session } = useSession();
   const router = useRouter();
+  const picture = checkLogin(session, router);
+  
   return (
     <>
       <div className={styles.navbar_logo_wrapper}>
-        <Link href={"/"}>
+        <Link style={{"height": "100%", "display": "block"}} href={"/"}>
           <img src="/dw-logo-navbar.png"></img>
         </Link>
       </div>
@@ -45,9 +74,7 @@
           <li>
             <Link href="/about">About</Link>
           </li>
-          <button type="button" onClick={() => router.push("/login")}>
-            Login
-          </button>
+          {picture}
         </ul>
       </div>
     </>
