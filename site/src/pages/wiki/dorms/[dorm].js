@@ -221,11 +221,11 @@ function genReviews(reviews) {
     rev_html.push(
       <div key={i} className={wiki.review}>
         <div className={wiki.review_text}>
-          <h2>{r["user"]}</h2>
+          <h2>{r["title"]}</h2>
           <h3 className={wiki.subtitle}>
             {new Date(r["date"]).toLocaleDateString()}
           </h3>
-          <h3>{r["title"]}</h3>
+          <h3>{r["user"]}</h3>
           <div className={wiki.review_p}>
             {r["text"]}
           </div>
