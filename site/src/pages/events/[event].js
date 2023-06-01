@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React, { useState } from 'react';
 import { useRouter } from "next/router";
 import { getEvent } from '../api/event';
+import { cleanName } from '@/misc';
 import Link from "next/link";
 import Navbar from '@/components/Navbar';
 import Footer from "@/components/Footer";
@@ -33,21 +34,17 @@ export  default function Event({ info, id }) {
             <div className={event.subtitle}>
               <i>Posted {formatDate(evt["postDate"])}</i>
             </div>
-            <img
-              src="/events/events1.jpg"
-              style={{ height: "500px", width: "700px"}}
-            ></img>
             <div className={event.subtitle}>
                 <b><u>Start time</u></b>: {formatDate(evt["startTime"])}
             </div>
             <div className={event.subtitle}>
-                <b><u>Dorm/location</u></b>: {evt["dorm_id"]}, {evt["location"]}
+                <b><u>Dorm/location</u></b>: {cleanName(evt["dorm_id"])}, {evt["location"]}
             </div>
             <div className={event.subtitle}>
-              <b><u>Organizer</u></b>: {evt["organizer"]} ([contact info])
+              <b><u>Organizer</u></b>: {evt["organizer"]}
             </div>
             <div className={event.p}>
-              [insert event description]
+              {evt["description"]}
             </div>
           </div>
           <div className={event.save_button}>

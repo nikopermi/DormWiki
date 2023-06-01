@@ -21,7 +21,7 @@ export default function About() {
         <title>Dorm Wiki</title>
         <meta name="description" content="Your go-to place for UW dorm info" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/dw-logo-icon.svg"/>
+        <link rel="icon" href="/dw-logo-icon.svg" />
       </Head>
       <Navbar />
       <main className={events.main}>
@@ -29,30 +29,33 @@ export default function About() {
           <div className={about.full_span}>
             <h2 className={about.title}>Our Mission</h2>
             <p className={about.p}>
-              DormWiki is dedicated to empowering University of Washington students by 
-              providing a user-friendly platform to discover and understand the diverse
-              range of dormitories on campus. Our mission is to assist prospective, incoming,
-              and current students in finding their ideal living space, tailored to their 
-              unique preferences and requirements. We also strive to foster a strong sense of
-              community by keeping students informed about dorm-specific events, facilitating
-              their integration into the vibrant dorm environment. Through simplicity, transparency,
-              and inclusivity, DormWiki aims to enhance the overall student experience
-              and contribute to a thriving campus community at the University of Washington.
+              DormWiki is dedicated to empowering University of Washington
+              students by providing a user-friendly platform to discover and
+              understand the diverse range of dormitories on campus. Our mission
+              is to assist prospective, incoming, and current students in
+              finding their ideal living space, tailored to their unique
+              preferences and requirements. We also strive to foster a strong
+              sense of community by keeping students informed about
+              dorm-specific events, facilitating their integration into the
+              vibrant dorm environment. Through simplicity, transparency, and
+              inclusivity, DormWiki aims to enhance the overall student
+              experience and contribute to a thriving campus community at the
+              University of Washington.
             </p>
           </div>
           <div className={about.full_span}>
             <h2 className={about.title}>Meet The Team</h2>
             <div className={about.list_wrapper}>
-              <ul> Jaylyn Zhang </ul>
-              <ul> Lydia Li </ul> 
+              <ul> Lydia Li </ul>
               <ul> Yijia Zhao </ul>
+              <ul> Jaylyn Zhang </ul>
               <ul> Niko Permilovsky </ul>
               <ul> Mia Yamada-Heidner </ul>
             </div>
           </div>
         </div>
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }
