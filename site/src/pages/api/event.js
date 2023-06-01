@@ -75,7 +75,7 @@ export default async function handler(req, res) {
 			{ $pull: { likes : { $eq : parseInt(req.query.id) } } }
 		)
 	} else { // POST CALL
-		if (req.query != undefined){ // Liking an event
+		if (req.query.id != undefined){ // Liking an event
 			let results = await collection.updateOne({_id: Number.parseInt(req.query.id)}, {$inc : {likes: 1}},
 				function(err, result) {
 				if (err) {
@@ -102,7 +102,7 @@ export default async function handler(req, res) {
 				postDate: DOMPurify.sanitize(body.postDate),
 				dorm_id: DOMPurify.sanitize(body.dorm_id),
 				location: DOMPurify.sanitize(body.location),
-				organizer: DOMPurify.sanitize(body.organizer)
+				organizer: DOMPurify.sanitize(body.organizer),
 			}
 			console.log(newEvent);
 			try {
