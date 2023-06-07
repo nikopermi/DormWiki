@@ -1,7 +1,6 @@
 import DOMPurify from 'isomorphic-dompurify';
 import ClientPromise from "@/lib/mongodb";
 
-
 export async function getWiki(dorm) {
 	let client = await ClientPromise;
   let db = client.db("DormWiki");
@@ -28,5 +27,4 @@ export async function getWiki(dorm) {
 export default async function handler(req, res) {
 	let ret = await getWiki(req.query.dorm);
 	res.json(ret).status(200);
-
 }
